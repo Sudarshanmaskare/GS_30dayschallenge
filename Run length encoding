@@ -1,0 +1,24 @@
+string encode(string src)
+{     
+  //Your code here 
+  string res="";
+  int c=1;
+  for(int i=1;i<src.size();i++){
+      if(src[i]!=src[i-1]){
+          string s;
+          s+=src[i-1];
+          res.append(s);
+          res.append(to_string(c));
+          c=1;
+      }
+      else{
+          c++;
+      }
+  }
+  
+  string s;
+  s+=src[src.size()-1];
+  res.append(s);
+  res.append(to_string(c));
+  return res;
+}     

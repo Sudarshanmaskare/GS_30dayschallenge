@@ -1,0 +1,64 @@
+//Author : @Sudarshan_Believe_that(Rega)
+// `ctrl+alt+f`: Format current file.
+// `ctrl+b`: build and run current file.
+#include <bits/stdc++.h>
+using namespace std;
+#define pb                push_back
+#define ppb               pop_back
+#define pf                push_front
+#define ppf               pop_front
+#define all(x)            (x).begin(),(x).end()
+#define uniq(v)           (v).erase(unique(all(v)),(v).end())
+#define sz(x)             (int)((x).size())
+#define fr                first
+#define sc                second
+#define pii               pair<int,int>
+#define rep(i,a,b)        for(int i=a;i<b;i++)
+#define mem1(a)           memset(a,-1,sizeof(a))
+#define mem0(a)           memset(a,0,sizeof(a))
+#define ar array
+#define ll long long
+#define ld long double
+const int MAX_N = 1e5 + 5;
+const ll MOD = 1e9 + 7;
+const ll INF = 1e9;
+const ld EPS = 1e-9;
+struct TreeNode {
+    int data; TreeNode *left, *right; TreeNode(int x) {left = right = NULL; data = x;}
+};
+void SieveOfEratosthenes(int N) {
+    bool check[N + 1]; memset(check, true, sizeof(check)); vector<int> prime;
+    for (int p = 2; p * p <= N; p++) {if (check[p] == true) {prime.push_back(p); for (int i = p * p; i <= N; i += p)check[i] = false;}}
+}
+int parent_dsu[100000]; int rank_dsu[100000];
+void set_dsu(int n) {
+    for (int i = 0; i <= n; i++) {parent_dsu[i] = i; rank_dsu[i] = 0;}
+}
+int findpar_dsu(int node) {
+    if (node == parent_dsu[node]) return node; return parent_dsu[node] = findpar_dsu(parent_dsu[node]);
+}
+void union_dsu(int u, int v) {
+    int parent_u = findpar_dsu(u); int parent_v = findpar_dsu(v); if (rank_dsu[parent_u] < rank_dsu[parent_v]) {parent_dsu[parent_u] = parent_v;} else if (rank_dsu[parent_u] > rank_dsu[parent_v]) {parent_dsu[parent_v] = parent_u;} else {parent_dsu[u] = parent_v; rank_dsu[parent_v]++;}
+}
+void judge() {
+#ifndef ONLINE_JUDGE
+    freopen("input_cp.txt", "r", stdin); freopen("output_cp.txt", "w", stdout);
+#endif
+}
+void fast() {
+    ios_base::sync_with_stdio(0); cin.tie(0); cout.tie(0);
+}
+//////////////////////////////////////////////////////code below//////////////////////////////////////////////////////////
+
+void solve() {
+    
+}
+
+int main() {
+    //execution starts
+    fast();//fast execution
+    judge();//Judge
+    solve();//Heart
+    return 0;
+}
+

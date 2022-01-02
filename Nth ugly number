@@ -1,0 +1,19 @@
+	long long int getNthUglyNo(int n) {
+	    // code here
+	  vector<long long int> ugly(n,0);
+	  ugly[0]=1;
+	  long long int c=1;
+	  long long int index1=0,index2=0,index3=0;
+	  while(c<n){
+	      long long int next1=ugly[index1]*2;
+	      long long int next2=ugly[index2]*3;
+	      long long int next3=ugly[index3]*5;
+	      long long int cal=min(next1,min(next2,next3));
+	      if(cal==next1) index1++;
+	      if(cal==next2) index2++;
+	      if(cal==next3) index3++;
+	      ugly[c]=cal;
+	      c++;
+	  }
+	  return ugly[n-1];
+	}

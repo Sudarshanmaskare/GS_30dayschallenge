@@ -1,0 +1,19 @@
+ bool canPair(vector<int> nums, int k) {
+        // Code here.
+      unordered_map<int,int> mp;
+      for(auto var:nums) mp[var%k]++;
+      
+      for(auto var:nums){
+          int rem=var%k;
+          if(rem==0){
+              if(mp[rem]%2) return false;
+          }
+          else if(2*rem==k){
+              if(mp[rem]%2) return false;
+          }
+          else{
+              if(mp[rem]!=mp[k-rem]) return false;
+          }
+      }
+      return true;
+    }

@@ -1,0 +1,24 @@
+ string printMinNumberForPattern(string S){
+        // code here 
+        stack<int> stk;
+        int num=1;
+        string ans="";
+        for(int i=0;i<S.size();i++){
+            if(S[i]=='D'){
+                stk.push(num++);
+            }
+            else{
+                stk.push(num++);
+                while(stk.size()){
+                    ans+=to_string(stk.top());
+                    stk.pop();
+                }
+            }
+        }
+        stk.push(num);
+        while(!stk.empty()){
+            ans+=to_string(stk.top());
+            stk.pop();
+        }
+        return ans;
+    }
